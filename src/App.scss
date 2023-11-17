@@ -1,0 +1,285 @@
+.logo-name{
+  font-size: 1.5em!important;
+  font-weight: bold!important;
+}
+@import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
+
+// Style
+@mixin space($margin: 0, $padding: 0, $border: 0){
+  margin: $margin;
+  padding: $padding;
+  border: $border;
+}
+
+*{
+  box-sizing: border-box;
+  transition: all .15s ease-in-out;
+}
+
+a{
+  cursor:pointer;
+}
+
+body{
+  background: #fafafa;
+  @include space(50px auto);
+  width: 800px;
+  max-width: 95%;
+  font-family: 'Cabin', sans-serif;
+  .post-section{
+    background: #ffffff;
+    position: relative;
+    border-radius: 2px;
+    @include space(10px 0, 0, 1px solid #dbdbdb);
+    .header{
+      display: flex;
+      justify-content: space-between;
+      .user{
+        @include space(5px, 7px);
+      }
+      .param{
+        cursor: pointer;
+        @include space(6px, 6px);
+        border-radius: 4px;
+        &:hover{
+          background: rgb(0 0 0 / 9%);
+        }
+      }
+    }
+    .img-container{
+      img{
+        width: 100%;
+      }
+    }
+    .like-checkbox{
+      display: none;
+    }
+    .toolbar{
+      display: flex;
+      flex-direction: row;
+      justify-content: left;
+      .like, .comment, .transfer, .signet{
+         @include space(8px, 0);
+      }
+      .signet{
+        position: absolute;
+        right: 0;
+      }
+    }
+    .description{
+      @include space(6px, 6px);
+      font-size: 16px;
+      strong{
+        font-weight: bold;
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+.check-like{
+  animation-duration: 0.2s;
+  animation-name: like;
+  fill: #1F81BA;
+}
+.check-path{
+  fill: #1F81BA;
+  background: #1F81BA;
+}
+
+@keyframes like {
+  from{
+    transform: scale(1);
+  }
+  75%{
+    transform: scale(1.4);
+  }
+  to{
+    transform: scale(1);
+  }
+}
+
+
+// Header 
+
+.main{
+  width: 100%;
+  // padding: 40px 0;
+  display: flex;
+  // justify-content: center;
+  // margin-bottom: 50px;
+  // border: 2px solid;
+  // position: absolute;
+  top: 0;
+}
+
+.wrapper{
+  width: 70%;
+  max-width: 1000px;
+  display: grid;
+  grid-template-columns: 60% 40%;
+  // grid-gap: 30px;
+  // border: 2px solid red;
+}
+
+.left-col{
+  display: flex;
+  flex-direction: column;
+}
+
+.status-wrapper{
+  width: 100%;
+  height: 120px;
+  // background: #fff;
+  // border: 1px solid #dfdfdf;
+  border-radius: 2px;
+  padding: 10px;
+  padding-right: 0;
+  display: flex;
+  align-items: center;
+  // overflow: hidden;
+  // overflow-x: auto;
+}
+
+.status-wrapper::-webkit-scrollbar{
+  display: none;
+}
+
+.status-card{
+  flex: 0 0 auto;
+  width: 80px;
+  max-width: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.profile-pic{
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+  padding: 3px;
+  background: linear-gradient(45deg, rgb(255, 230, 0), rgb(255, 0, 128) 80%);
+}
+
+.profile-pic img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+.username{
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+  font-size: 12px;
+  margin-top:5px;
+  color: rgba(0, 0, 0, 0.5)
+}
+
+
+// Right side 
+
+.right-col{
+  padding: 20px;
+  position: sticky;
+  top: 0;
+}
+
+.profile-card{
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.profile-card .profile-pic{
+  flex: 0 0 auto;
+  padding: 0;
+  background: none;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.profile-card:first-child .profile-pic{
+  width: 70px;
+  height: 70px;
+}
+
+.profile-card .profile-pic img{
+  border: none;
+}
+
+.profile-card .username{
+  font-weight: 500;
+  font-size: 14px;
+  color: #000;
+}
+
+.sub-text{
+  color: rgba(0, 0, 0, 0.5);
+  font-size:12px;
+  font-weight: 500;
+  margin-top: 5px;
+}
+
+.action-btn{
+  opacity: 1;
+  font-weight: 700;
+  font-size: 12px;
+  border: none;
+  color: blue;
+  margin-top: 2em;
+  margin-left: 1em;
+  padding: 5px 10px;
+}
+
+.suggestion-text{
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: 700;
+  margin: 20px 0;
+  padding: 10px;
+}
+
+@media (max-width: 1100px){
+  .right-col, .search-box{
+      display: none;
+  }
+  .nav-wrapper,
+  .wrapper{
+      width: 90%;
+  }
+  .wrapper{
+      display: block;
+  }
+}
+
+@media (max-width: 500px){
+  .nav-items .icon{
+      margin: 0 5px;
+  }
+  .post-image{
+      height: 300px;
+  }
+}
+
+
+
+
+
+.layout-slider{
+  // border: 2px solid blue;
+  width: 1000px;
+}
+
+.content{
+//   border: 2px solid red;
+  width: fit-content;
+}
